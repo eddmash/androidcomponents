@@ -35,7 +35,6 @@ public class AllCheck extends CheckCompound {
             if (!check.run()) {
                 status = false;
                 failedChecks.add(check);
-                break;
             }
         }
         return status;
