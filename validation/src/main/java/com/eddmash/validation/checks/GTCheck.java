@@ -14,6 +14,8 @@ import android.widget.Spinner;
 
 /**
  * Check if the value on the view is greater than the provided value.
+ *
+ * Note:: if the value is an empty string the validation fails.
  */
 public class GTCheck extends NotEmptyCheck {
     private double max;

@@ -1,25 +1,26 @@
 package com.eddmash.validation.checks;
 /*
-* This file is part of the androidcomponents package.
-* 
-* (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
-*
-* For the full copyright and license information, please editText the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of the androidcomponents package.
+ *
+ * (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
+ *
+ * For the full copyright and license information, please editText the LICENSE
+ * file that was distributed with this source code.
+ */
 
 import android.util.Log;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Objects;
 
 /**
  * Ensure the view if not blank.
+ * <p>
+ * NOTE:: This will only check if the value is an empty string "", it will pass if the value is
+ * "0" you can use {@link GTCheck} or "false"
+ *
+ * .
  */
 public class NotEmptyCheck extends CheckSingle {
 
@@ -58,7 +59,7 @@ public class NotEmptyCheck extends CheckSingle {
     protected TextView getView() {
         TextView v = editText;
         if (spinner != null) {
-            Log.e(getClass().getSimpleName(), " SELECTED "+spinner.getSelectedView());
+            Log.e(getClass().getSimpleName(), " SELECTED " + spinner.getSelectedView());
             v = (TextView) spinner.getSelectedView();
         }
 

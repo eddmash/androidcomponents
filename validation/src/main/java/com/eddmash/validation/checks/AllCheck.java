@@ -17,6 +17,8 @@ import java.util.ArrayList;
  * <p>
  * If the no checks are provided i.e. checkList is empty, validation will always pass for this
  * check.
+ *
+ * This check only adds error messages to the views that have failed validation.
  */
 public class AllCheck extends CheckCompound {
 

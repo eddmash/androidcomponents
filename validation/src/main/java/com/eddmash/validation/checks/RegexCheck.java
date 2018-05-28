@@ -1,12 +1,12 @@
 package com.eddmash.validation.checks;
 /*
-* This file is part of the androidcomponents package.
-* 
-* (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of the androidcomponents package.
+ *
+ * (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,9 +25,7 @@ public class RegexCheck extends CheckSingle {
     private Spinner spinner;
 
     public RegexCheck(EditText view, String errorMessage, String rule) {
-        this.view = view;
-        this.errorMessage = errorMessage;
-        pattern = Pattern.compile(rule);
+        this(view, errorMessage, Pattern.compile(rule));
     }
 
     public RegexCheck(EditText view, String errorMessage, Pattern pattern) {
@@ -37,9 +35,7 @@ public class RegexCheck extends CheckSingle {
     }
 
     public RegexCheck(Spinner spinner, String errorMessage, String rule) {
-        this.spinner = spinner;
-        this.errorMessage = errorMessage;
-        pattern = Pattern.compile(rule);
+        this(spinner, errorMessage, Pattern.compile(rule));
     }
 
     public RegexCheck(Spinner spinner, String errorMessage, Pattern pattern) {
@@ -62,6 +58,9 @@ public class RegexCheck extends CheckSingle {
 
     @Override
     public TextView getView() {
+        if (spinner != null) {
+            return (TextView) spinner.getSelectedView();
+        }
         return view;
     }
 

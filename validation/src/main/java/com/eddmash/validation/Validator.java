@@ -42,9 +42,7 @@ public class Validator implements ValidatorInterface {
 
     @Override
     public boolean validate() {
-        Log.e(getClass().getName(), _tag+" checklist =  " + checkList);
         clearErrors();
-        Log.e(getClass().getName(), _tag+" VALIDATING =  " + this.hashCode());
         List viewErros = validateChecks();
 
         viewErros = new ArrayList(new HashSet(viewErros));
@@ -53,8 +51,7 @@ public class Validator implements ValidatorInterface {
 
         boolean validators = validateValidators();
 
-        Log.e(getClass().getName(), _tag+" checklist =  " + checkList);
-        Log.e(getClass().getName(), _tag+" Errors =  " + errors);
+        Log.e(getClass().getName(), _tag+" :: Errors =  " + errors);
         return validators && viewErros.size() == 0;
     }
 
