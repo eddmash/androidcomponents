@@ -1,16 +1,14 @@
 package com.eddmash.validation.checks;
 /*
-* This file is part of the androidcomponents package.
-* 
-* (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of the androidcomponents package.
+ *
+ * (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 import android.view.ViewGroup;
-
-import com.eddmash.validation.ValidatorInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,14 +59,25 @@ abstract public class CheckCompound extends CheckSingle {
 
     @Override
     public void setError(String error) {
-        for (CheckInterface check : checkList) {
+        setViewError(checkList, error);
+    }
+
+    protected void setViewError(List<CheckInterface> checks, String error) {
+        for (CheckInterface check : checks) {
+            if (!check.getErrorMsg().equals(error)) {
+                error = check.getErrorMsg();
+            }
             check.setError(error);
         }
     }
 
     @Override
     public void clearError() {
-        for (CheckInterface check : checkList) {
+        clearViewErrors(checkList);
+    }
+
+    protected void clearViewErrors(List<CheckInterface> checks) {
+        for (CheckInterface check : checks) {
             check.clearError();
         }
     }
