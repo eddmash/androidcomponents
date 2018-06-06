@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         // populate form with dummy data
 //        DummyDataPopulator dataPopulator = new DummyDataPopulator();
 //        try {
-//            dataPopulator.setFieldProvider("phonenumber",
+//            dataPopulator.setProvider("phonenumber",
 //                    new TelephoneProvider(dataPopulator, "(+###) ### ### ###"));
 //            dataPopulator.populate(form);
 //        } catch (FormException e) {
