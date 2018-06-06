@@ -15,7 +15,9 @@ import android.widget.TextView;
 import java.util.regex.Pattern;
 
 /**
- * VAlidate a view against the provided rule or pattern
+ * VAlidate a view against the provided rule or pattern.
+ * <p>
+ * Validation will fail if the view value does not match the provided pattern.
  */
 public class RegexCheck extends CheckSingle {
 
