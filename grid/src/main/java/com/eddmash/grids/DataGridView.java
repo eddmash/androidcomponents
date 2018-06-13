@@ -1,12 +1,12 @@
 package com.eddmash.grids;
 /*
-* This file is part of the androidcomponents package.
-* 
-* (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of the androidcomponents package.
+ *
+ * (c) Eddilbert Macharia (http://eddmash.com)<edd.cowan@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -25,7 +25,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.eddmash.db.ActiveRecord;
 import com.eddmash.grids.columns.ActionColumn;
 import com.eddmash.grids.columns.BaseColumn;
 import com.eddmash.grids.columns.Column;
@@ -539,14 +538,18 @@ public class DataGridView extends LinearLayout {
 
     }
 
-    public void setPaginator(PaginatorInterface paginator, LazyResolver
-            lazyResolver) {
+    public void setPaginator(PaginatorInterface paginator) {
+        data.clear();
+        setup(paginator);
+    }
+
+    protected void setPaginator(PaginatorInterface paginator, LazyResolver lazyResolver) {
         data.clear();
         setup(paginator);
         lazyResolver.resolve();
     }
 
-    private void setup(PaginatorInterface paginator) {
+    protected void setup(PaginatorInterface paginator) {
 
         paginator.setPageSize(pageSize);
         this.paginator = paginator;
@@ -584,7 +587,7 @@ public class DataGridView extends LinearLayout {
      * @return columns to use for rendering.
      */
     private Map getDisplayItems() {
-        if (displayItems == null) {
+        if (displayItems == null && !data.isEmpty()) {
             displayItems = new HashMap();
             Map dataItem = data.get(0);
             for (Object key : dataItem.keySet()) {
