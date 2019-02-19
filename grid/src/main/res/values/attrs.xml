@@ -7,5 +7,5 @@
         <attr name="isStrip" format="boolean" />
         <attr name="pageSize" format="integer" />
     </declare-styleable>
-    <item name="checkboxid" type="id">your id name</item>
+    <item name="checkboxid" type="id"/>
 </resources>
