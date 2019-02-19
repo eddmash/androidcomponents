@@ -2,10 +2,10 @@
 
 git push origin master
 
-git subtree push --prefix=form/ git@github.com:eddmash/android-form.git master
-git subtree push --prefix=adapter/ git@github.com:eddmash/filterableadapter.git master
-git subtree push --prefix=views/ git@github.com:eddmash/android-views.git master
-git subtree push --prefix=grid/ git@github.com:eddmash/android-grids.git master
-git subtree push --prefix=pagination/ git@github.com:eddmash/pagination.git master
-git subtree push --prefix=validation/ git@github.com:eddmash/validation.git master
-git subtree push --prefix=dialogs/ git@github.com:eddmash/dialogs.git master
+git subtree push --prefix=form/ https://github.com/eddmash/android-form.git master
+git subtree push --prefix=adapter/ https://github.com/eddmash/filterableadapter.git master
+git subtree push --prefix=views/ https://github.com/eddmash/android-views.git master
+git subtree push --prefix=grid/ https://github.com/eddmash/android-grids.git master
+git subtree push --prefix=pagination/ https://github.com/eddmash/pagination.git master
+git subtree push --prefix=validation/ https://github.com/eddmash/validation.git master
+git subtree push --prefix=dialogs/ https://github.com/eddmash/dialogs.git master
