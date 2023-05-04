@@ -4,31 +4,23 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.eddmash.androidcomponents.helpers.DatabaseSchema;
 import com.eddmash.androidcomponents.helpers.SqlHelper;
-import com.eddmash.db.ActiveRecord;
 import com.eddmash.dialogs.GenericDialog;
 import com.eddmash.grids.DataGridView;
 import com.eddmash.grids.columns.ActionColumn;
 import com.eddmash.validation.Validator;
 import com.eddmash.validation.checks.NotEmptyCheck;
 
-import java.util.List;
 import java.util.Map;
 
 public class DialogsActivity extends AppCompatActivity {

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-apply plugin: 'android-maven'
+apply plugin: 'maven-publish'
 
 group='com.github.eddmash.androidcomponents'
 
@@ -13,7 +13,7 @@ android {
         versionCode project.ext.versionCode
         versionName "${project.ext.versionName}"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
 
@@ -33,11 +33,26 @@ dependencies {
     implementation project(':pagination')
     implementation project(':activerecord')
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }
 
 //Add these lines to publish library to bintray
 //Place it at the end of the file
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+                // You can then customize attributes of the publication as shown below.
+                groupId = "${group}"
+                artifactId = 'grid'
+                version = project.ext.versionName
+            }
+        }
+    }
+}
