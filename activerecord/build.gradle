@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-apply plugin: 'android-maven'
+apply plugin: "maven-publish"
 
 group='com.github.eddmash.androidcomponents'
 
@@ -13,7 +13,7 @@ android {
         versionCode project.ext.versionCode
         versionName "${project.ext.versionName}"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -26,7 +26,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation "androidx.sqlite:sqlite:2.3.1"
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
@@ -36,3 +37,18 @@ dependencies {
 //Place it at the end of the file
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+                // You can then customize attributes of the publication as shown below.
+                groupId = "${group}"
+                artifactId = 'activerecord'
+                version = project.ext.versionName
+            }
+        }
+    }
+}

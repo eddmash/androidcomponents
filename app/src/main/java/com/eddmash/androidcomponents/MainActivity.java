@@ -1,12 +1,10 @@
 package com.eddmash.androidcomponents;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,11 +19,8 @@ import android.widget.Spinner;
 import com.eddmash.androidcomponents.forms.BasicForm;
 import com.eddmash.form.FormException;
 import com.eddmash.form.FormInterface;
-import com.eddmash.form.faker.DummyDataPopulator;
-import com.eddmash.form.faker.provider.TelephoneProvider;
 import com.eddmash.form.values.SimpleValue;
 import com.eddmash.form.values.ValueInterface;
-import com.eddmash.validation.checks.GTCheck;
 import com.eddmash.validation.checks.GTECheck;
 import com.eddmash.validation.checks.NotEmptyCheck;
 import com.eddmash.validation.renderer.ErrorRenderer;
