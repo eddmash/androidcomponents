@@ -25,13 +25,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.5.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "androidx.sqlite:sqlite:2.3.1"
     implementation project(':activerecord')
     implementation project.ext.supportDependencies.appCompat
-    testImplementation 'junit:junit:4.12'
+
+    testImplementation 'junit:junit:4.13.2'
 }
 
 //Add these lines to publish library to bintray
